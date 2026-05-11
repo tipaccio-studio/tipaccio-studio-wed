@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>franc · Developer Portfolio</title>
-  <meta name="description" content="Portfolio personale di franc, sviluppatore Discord bot, web dev e molto altro." />
+  <title>Tipaccio Studio · Developer Portfolio</title>
+  <meta name="description"
+    content="Portfolio personale di Tipaccio Studio, sviluppatore Discord bot, web dev e molto altro." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <!-- NAV -->
   <nav id="navbar">
     <div class="nav-inner">
-      <span class="nav-logo">&lt;franc /&gt;</span>
+      <div class="nav-logo-container">
+        <img src="foto/logo.png" alt="Logo" class="nav-logo-img">
+        <span class="nav-logo">Tipaccio Studio</span>
+      </div>
       <ul class="nav-links">
         <li><a href="#hero">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Progetti</a></li>
+        <li><a href="#gallery">Galleria</a></li>
         <li><a href="#contact">Contatti</a></li>
       </ul>
-      <a class="btn-nav" href="https://github.com/franc" target="_blank">GitHub ↗</a>
+      <a class="btn-nav" href="https://github.com/tipaccio-studio" target="_blank">GitHub ↗</a>
     </div>
   </nav>
 
@@ -29,14 +37,18 @@
   <section id="hero">
     <canvas id="particles"></canvas>
     <div class="hero-content">
-      <div class="badge">👋 Disponibile per progetti</div>
-      <h1>Ciao, sono <span class="gradient-text">franc</span></h1>
-      <p class="hero-sub">Developer · Discord Bot Builder · Open Source</p>
-      <p class="hero-desc">Costruisco bot Discord avanzati, tool automatizzati e siti web moderni.<br>Appassionato di tech, gaming e tutto ciò che si può automatizzare.</p>
+      <div class="badge">🔴 Tipaccio Studio Online</div>
+      <h1>Siamo <span class="gradient-text">Tipaccio Studio</span></h1>
+      <p class="hero-sub">Creative Devs · Discord Solutions · Web Experience</p>
+      <p class="hero-desc">Sviluppiamo l'impossibile. Dai bot Discord più complessi alle web app più veloci. <br>Design
+        audace, codice pulito, performance estreme.</p>
       <div class="hero-btns">
-        <a href="#projects" class="btn-primary">Vedi i miei progetti</a>
-        <a href="https://github.com/franc" target="_blank" class="btn-ghost">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        <a href="#contact" class="btn-primary">Lavora con noi</a>
+        <a href="https://github.com/tipaccio-studio" target="_blank" class="btn-ghost">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
           GitHub
         </a>
       </div>
@@ -47,27 +59,33 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="container">
-      <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      <h2 class="section-title">Chi Siamo <span class="gradient-text">Tipaccio Studio</span></h2>
       <div class="about-grid">
         <div class="about-card glow-card">
           <div class="about-avatar">
             <div class="avatar-ring"></div>
-            <div class="avatar-inner">F</div>
+            <img src="foto/logo.png" alt="Avatar" class="avatar-img-round">
           </div>
           <div class="about-stats">
-            <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Progetti</span></div>
-            <div class="stat"><span class="stat-num" data-target="3">0</span><span class="stat-label">Anni exp.</span></div>
-            <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Bot Discord</span></div>
+            <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Progetti</span>
+            </div>
+            <div class="stat"><span class="stat-num" data-target="10">0</span><span class="stat-label">Anni exp.</span>
+            </div>
+            <div class="stat"><span class="stat-num" data-target="5">0</span><span class="stat-label">Bot Attivi</span>
+            </div>
           </div>
         </div>
         <div class="about-text">
-          <p>Sono uno sviluppatore italiano appassionato di <strong>Discord bot</strong>, automazione e tool da zero. Ho iniziato a programmare per curiosità e ora costruisco progetti complessi con Node.js, SQLite, API esterne e molto altro.</p>
-          <p>Mi piace creare cose utili: bot con AI integrata, sistemi di moderazione avanzati, panel web per server Discord e FiveM.</p>
+          <p><strong>Tipaccio Studio</strong> non è solo codice, è visione. Con un passato come <strong>ex developer su
+              Roblox</strong>, abbiamo evoluto le nostre competenze nella creazione di ecosistemi digitali su misura:
+            dai bot Discord con integrazioni AI alla gestione di infrastrutture per FiveM.</p>
+          <p>La nostra missione è trasformare idee complesse in realtà funzionali e bellissime da vedere.</p>
           <div class="tags">
             <span class="tag">🇮🇹 Italiano</span>
             <span class="tag">🎮 Gamer</span>
             <span class="tag">🤖 Bot Dev</span>
             <span class="tag">🔓 Open Source</span>
+            <span class="tag">🧱 Roblox Dev</span>
           </div>
         </div>
       </div>
@@ -77,96 +95,75 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="container">
-      <h2 class="section-title">Le mie <span class="gradient-text">Skills</span></h2>
+      <h2 class="section-title">Le nostre <span class="gradient-text">Skills</span></h2>
       <div class="skills-grid">
         <div class="skill-card glow-card">
-          <div class="skill-icon">🟨</div>
-          <h3>JavaScript</h3>
-          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-          <span class="skill-pct">90%</span>
+          <div class="skill-icon">🌙</div>
+          <h3>Lua</h3>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="98"></div>
+          </div>
+          <span class="skill-pct">98%</span>
         </div>
         <div class="skill-card glow-card">
           <div class="skill-icon">🤖</div>
           <h3>Discord.js</h3>
-          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
-          <span class="skill-pct">95%</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="59"></div>
+          </div>
+          <span class="skill-pct">59%</span>
         </div>
         <div class="skill-card glow-card">
           <div class="skill-icon">🗄️</div>
           <h3>SQLite / DB</h3>
-          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-          <span class="skill-pct">80%</span>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="50"></div>
+          </div>
+          <span class="skill-pct">50%</span>
         </div>
         <div class="skill-card glow-card">
           <div class="skill-icon">🌐</div>
           <h3>HTML / CSS</h3>
-          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="85"></div>
+          </div>
           <span class="skill-pct">85%</span>
         </div>
         <div class="skill-card glow-card">
           <div class="skill-icon">⚙️</div>
           <h3>Node.js</h3>
-          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="88"></div>
+          </div>
           <span class="skill-pct">88%</span>
         </div>
         <div class="skill-card glow-card">
           <div class="skill-icon">🔧</div>
           <h3>Git / GitHub</h3>
-          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="75"></div>
+          </div>
           <span class="skill-pct">75%</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects">
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
     <div class="container">
-      <h2 class="section-title">I miei <span class="gradient-text">Progetti</span></h2>
-      <div id="github-projects" class="projects-grid">
-        <div class="project-card glow-card">
-          <div class="project-header">
-            <span class="project-icon">🤖</span>
-            <div class="project-lang"><span class="lang-dot js"></span> JavaScript</div>
-          </div>
-          <h3>Discord Bot AI</h3>
-          <p>Bot Discord avanzato con AI integrata (Gemini/Claude), sistema ticket, moderazione automatica e molto altro.</p>
-          <div class="project-tags"><span class="tag">discord.js</span><span class="tag">Node.js</span><span class="tag">SQLite</span></div>
-          <div class="project-footer">
-            <span>⭐ Bot · Privato</span>
-            <a href="https://github.com/franc" target="_blank" class="btn-ghost small">View ↗</a>
-          </div>
+      <h2 class="section-title">La nostra <span class="gradient-text">Galleria</span></h2>
+      <div class="gallery-grid">
+        <div class="gallery-item glow-card">
+          <img src="foto/Immagine 2025-12-22 192013.png" alt="Work 1">
         </div>
-        <div class="project-card glow-card">
-          <div class="project-header">
-            <span class="project-icon">🎮</span>
-            <div class="project-lang"><span class="lang-dot js"></span> JavaScript</div>
-          </div>
-          <h3>FiveM Admin Panel</h3>
-          <p>Panel web per server FiveM con autenticazione Discord OAuth2, gestione giocatori e ban remoti.</p>
-          <div class="project-tags"><span class="tag">Next.js</span><span class="tag">FiveM</span><span class="tag">Supabase</span></div>
-          <div class="project-footer">
-            <span>⭐ Web App</span>
-            <a href="https://github.com/franc" target="_blank" class="btn-ghost small">View ↗</a>
-          </div>
+        <div class="gallery-item glow-card">
+          <img src="foto/Immagine 2025-12-30 215100.png" alt="Work 2">
         </div>
-        <div class="project-card glow-card">
-          <div class="project-header">
-            <span class="project-icon">🔍</span>
-            <div class="project-lang"><span class="lang-dot rust"></span> Rust</div>
-          </div>
-          <h3>FiveM Forensic Scanner</h3>
-          <p>Scanner forense nativo in Rust (Tauri) per rilevare cheat e DLL injection su FiveM.</p>
-          <div class="project-tags"><span class="tag">Tauri</span><span class="tag">Rust</span><span class="tag">Anti-Cheat</span></div>
-          <div class="project-footer">
-            <span>⭐ Desktop App</span>
-            <a href="https://github.com/franc" target="_blank" class="btn-ghost small">View ↗</a>
-          </div>
-        </div>
-        <div class="project-card glow-card add-card">
-          <div class="add-icon">+</div>
-          <p>Tutti i miei repos su GitHub</p>
-          <a href="https://github.com/franc" target="_blank" class="btn-primary">Vai su GitHub ↗</a>
+        <div class="gallery-item glow-card">
+          <img src="foto/Group 10.png" alt="Work 3">
         </div>
       </div>
     </div>
@@ -179,12 +176,18 @@
       <div class="contact-box glow-card">
         <p>Hai un progetto o vuoi collaborare? Scrivimi!</p>
         <div class="contact-links">
-          <a href="https://github.com/franc" target="_blank" class="contact-btn github">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          <a href="https://github.com/tipaccio-studio" target="_blank" class="contact-btn github">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
             GitHub
           </a>
-          <a href="https://discord.com" target="_blank" class="contact-btn discord">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          <a href="https://discord.gg/A3NSJwWdxm" target="_blank" class="contact-btn discord">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
+            </svg>
             Discord
           </a>
         </div>
@@ -194,9 +197,19 @@
   </section>
 
   <footer>
-    <p>Made with 💜 by <strong>franc</strong> · <span id="year"></span></p>
+    <div class="footer-content">
+      <p><strong>Tipaccio Studio</strong> | Tutti i diritti riservati.</p>
+      <div class="dmca-container">
+        <a href="https://www.dmca.com/Protection/Status.aspx?ID=44750662-2386-4e41-b00a-5552764fe6c6&refurl=https://tipaccio-studio.github.io/tipaccio-studio-wed" title="DMCA.com Protection Status" class="btn-dmca"> 
+          <img src="https://images.dmca.com/Badges/dmca-badge-w100-5x1-10.png?ID=44750662-2386-4e41-b00a-5552764fe6c6" alt="DMCA.com Protection Status" />
+          <span>Protected</span>
+        </a>
+        <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+      </div>
+    </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>

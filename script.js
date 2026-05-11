@@ -21,8 +21,8 @@ class Particle {
     this.size = Math.random() * 2 + 0.5;
     this.speedX = (Math.random() - 0.5) * 0.4;
     this.speedY = (Math.random() - 0.5) * 0.4;
-    this.opacity = Math.random() * 0.6 + 0.1;
-    this.color = Math.random() > 0.5 ? '139,92,246' : '6,182,212';
+    this.opacity = Math.random() * 0.5 + 0.1;
+    this.color = Math.random() > 0.5 ? '220,38,38' : '153,27,27';
   }
   update() {
     this.x += this.speedX;
@@ -42,7 +42,7 @@ for (let i = 0; i < 120; i++) particles.push(new Particle());
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   // grid lines subtle
-  ctx.strokeStyle = 'rgba(139,92,246,0.04)';
+  ctx.strokeStyle = 'rgba(220,38,38,0.03)';
   ctx.lineWidth = 1;
   for (let x = 0; x < canvas.width; x += 80) {
     ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
@@ -60,7 +60,7 @@ function animate() {
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(139,92,246,${0.12 * (1 - dist/100)})`;
+        ctx.strokeStyle = `rgba(220,38,38,${0.1 * (1 - dist/100)})`;
         ctx.lineWidth = 0.5;
         ctx.stroke();
       }
@@ -122,7 +122,7 @@ window.addEventListener('scroll', () => {
 async function loadGithubRepos() {
   try {
     // Sostituisci 'franc' con il tuo username GitHub reale
-    const username = 'franc';
+    const username = 'tipaccio-studio';
     const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=3`);
     if (!res.ok) return;
     const repos = await res.json();
