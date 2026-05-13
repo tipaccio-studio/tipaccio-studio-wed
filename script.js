@@ -1,136 +1,163 @@
 // ===== YEAR =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== PARTICLE CANVAS =====
-const canvas = document.getElementById('particles');
+// ===== AURORA / MESH GRADIENT CANVAS =====
+// Replaces the old particles with a smoother, organic moving gradient feel
+const canvas = document.getElementById('aurora-canvas');
 const ctx = canvas.getContext('2d');
-let particles = [];
+let w, h;
 
 function resize() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
 }
 resize();
 window.addEventListener('resize', resize);
 
-class Particle {
-  constructor() { this.reset(); }
-  reset() {
-    this.x = Math.random() * canvas.width;
-    this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 2 + 0.5;
-    this.speedX = (Math.random() - 0.5) * 0.4;
-    this.speedY = (Math.random() - 0.5) * 0.4;
-    this.opacity = Math.random() * 0.5 + 0.1;
-    this.color = Math.random() > 0.5 ? '220,38,38' : '153,27,27';
+class Blob {
+  constructor(color, radius, speed) {
+    this.color = color;
+    this.radius = radius;
+    this.speed = speed;
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.angle = Math.random() * Math.PI * 2;
   }
   update() {
-    this.x += this.speedX;
-    this.y += this.speedY;
-    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
+    this.x += Math.cos(this.angle) * this.speed;
+    this.y += Math.sin(this.angle) * this.speed;
+    
+    // Slow turning
+    this.angle += (Math.random() - 0.5) * 0.05;
+
+    // Bounce off edges gently
+    if (this.x < -this.radius) this.x = w + this.radius;
+    if (this.x > w + this.radius) this.x = -this.radius;
+    if (this.y < -this.radius) this.y = h + this.radius;
+    if (this.y > h + this.radius) this.y = -this.radius;
   }
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(${this.color},${this.opacity})`;
+    const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+    // 21st.dev style uses very subtle, deep colors.
+    grad.addColorStop(0, this.color);
+    grad.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = grad;
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
   }
 }
 
-for (let i = 0; i < 120; i++) particles.push(new Particle());
+// Deep space reds and purples
+const blobs = [
+  new Blob('rgba(225, 29, 72, 0.12)', 400, 0.4),
+  new Blob('rgba(159, 18, 57, 0.1)', 600, 0.3),
+  new Blob('rgba(255, 77, 77, 0.08)', 350, 0.5)
+];
 
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // grid lines subtle
-  ctx.strokeStyle = 'rgba(220,38,38,0.03)';
-  ctx.lineWidth = 1;
-  for (let x = 0; x < canvas.width; x += 80) {
-    ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, canvas.height); ctx.stroke();
-  }
-  for (let y = 0; y < canvas.height; y += 80) {
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(canvas.width, y); ctx.stroke();
-  }
-  // connect close particles
-  for (let i = 0; i < particles.length; i++) {
-    for (let j = i + 1; j < particles.length; j++) {
-      const dx = particles[i].x - particles[j].x;
-      const dy = particles[i].y - particles[j].y;
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      if (dist < 100) {
-        ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
-        ctx.strokeStyle = `rgba(220,38,38,${0.1 * (1 - dist/100)})`;
-        ctx.lineWidth = 0.5;
-        ctx.stroke();
-      }
-    }
-    particles[i].update();
-    particles[i].draw();
-  }
-  requestAnimationFrame(animate);
+function animateAurora() {
+  ctx.clearRect(0, 0, w, h);
+  blobs.forEach(b => {
+    b.update();
+    b.draw();
+  });
+  requestAnimationFrame(animateAurora);
 }
-animate();
+animateAurora();
 
-// ===== INTERSECTION OBSERVER =====
+// ===== SPOTLIGHT EFFECT FOR BENTO CARDS =====
+document.querySelectorAll('.bento-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    card.style.setProperty('--x', `${x}px`);
+    card.style.setProperty('--y', `${y}px`);
+  });
+});
+
+// ===== MAGNETIC BUTTONS PHYSICS =====
+// Inspired by 21st.dev premium interactions
+document.querySelectorAll('.magnetic').forEach(btn => {
+  const text = btn.querySelector('.btn-text');
+  
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const h = rect.width / 2;
+    const v = rect.height / 2;
+    
+    // Calculate distance from center
+    const x = e.clientX - rect.left - h;
+    const y = e.clientY - rect.top - v;
+    
+    // Apply translate to the button wrapper
+    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    // Apply deeper translate to the text for parallax
+    if(text) text.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    // Reset transform on leave
+    btn.style.transform = `translate(0px, 0px)`;
+    if(text) text.style.transform = `translate(0px, 0px)`;
+  });
+});
+
+// ===== INTERSECTION OBSERVER (Scroll Reveals) =====
+const observerOptions = {
+  root: null,
+  rootMargin: '0px',
+  threshold: 0.1
+};
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // skill bars
-      entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-        bar.style.width = bar.dataset.width + '%';
+      
+      // Animate skill bars if present
+      const skillBars = entry.target.querySelectorAll('.skill-fill');
+      skillBars.forEach(bar => {
+        bar.style.width = bar.getAttribute('data-width') + '%';
       });
-      // counters
-      entry.target.querySelectorAll('.stat-num').forEach(el => {
-        const target = +el.dataset.target;
+
+      // Animate counters if present
+      const counters = entry.target.querySelectorAll('.stat-num');
+      counters.forEach(el => {
+        // Prevent double animation
+        if (el.classList.contains('counted')) return;
+        el.classList.add('counted');
+        
+        const target = +el.getAttribute('data-target');
         let current = 0;
         const step = target / 40;
         const timer = setInterval(() => {
           current += step;
-          if (current >= target) { el.textContent = target + '+'; clearInterval(timer); }
-          else el.textContent = Math.floor(current);
+          if (current >= target) { 
+            el.textContent = target + '+'; 
+            clearInterval(timer); 
+          } else {
+            el.textContent = Math.floor(current);
+          }
         }, 30);
       });
+      
+      // Stop observing once visible
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.2 });
+}, observerOptions);
 
-document.querySelectorAll('section, .skill-card, .project-card, .about-card').forEach(el => observer.observe(el));
+document.querySelectorAll('.blur-reveal').forEach(el => {
+  observer.observe(el);
+});
 
-// ===== NAVBAR SCROLL =====
+// ===== NAVBAR SCROLL BEHAVIOR =====
 window.addEventListener('scroll', () => {
   const nav = document.getElementById('navbar');
-  nav.style.background = window.scrollY > 50
-    ? 'rgba(10,10,15,0.97)'
-    : 'rgba(10,10,15,0.85)';
-});
-
-// ===== SMOOTH ACTIVE NAV =====
-const sections = document.querySelectorAll('section[id]');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => {
-    if (window.scrollY >= s.offsetTop - 100) current = s.id;
-  });
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.style.color = a.getAttribute('href') === '#' + current ? '#e2e8f0' : '';
-  });
-});
-
-// ===== GITHUB API (opzionale) =====
-async function loadGithubRepos() {
-  try {
-    // Sostituisci 'franc' con il tuo username GitHub reale
-    const username = 'tipaccio-studio';
-    const res = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=3`);
-    if (!res.ok) return;
-    const repos = await res.json();
-    if (!repos.length) return;
-    // Se vuoi mostrare repos reali, puoi usare i dati qui
-    console.log('GitHub repos caricati:', repos.map(r => r.name));
-  } catch (e) {
-    console.log('GitHub API non disponibile, usando dati statici');
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
   }
-}
-loadGithubRepos();
+});
