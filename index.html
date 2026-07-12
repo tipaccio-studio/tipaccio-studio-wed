@@ -17,6 +17,7 @@
 <body>
   <!-- NOISE OVERLAY -->
   <div id="noise"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <!-- NAV -->
   <div class="nav-wrapper">
@@ -27,12 +28,12 @@
           <span class="nav-logo">Tipaccio Studio</span>
         </div>
         <ul class="nav-links">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About & Skills</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#hero" class="active">Inizio</a></li>
+          <li><a href="#about">Studio</a></li>
+          <li><a href="#gallery">Progetti</a></li>
+          <li><a href="#contact">Contatti</a></li>
         </ul>
-        <a class="btn-nav magnetic" href="https://github.com/tipaccio-studio" target="_blank">
+        <a class="btn-nav magnetic" href="https://github.com/tipaccio-studio" target="_blank" rel="noopener noreferrer">
           <span class="btn-text">GitHub ↗</span>
         </a>
       </div>
@@ -42,6 +43,17 @@
   <!-- HERO -->
   <section id="hero">
     <canvas id="aurora-canvas"></canvas>
+    <div class="hero-scene" aria-hidden="true">
+      <div class="scene-grid"></div>
+      <div class="scene-orbit orbit-one"></div>
+      <div class="scene-orbit orbit-two"></div>
+      <div class="scene-orbit orbit-three"></div>
+      <div class="scene-core"><span></span></div>
+      <div class="scene-chip chip-one"><i></i><i></i><i></i></div>
+      <div class="scene-chip chip-two"><i></i><i></i><i></i></div>
+      <div class="scene-label label-one">01 / BUILD</div>
+      <div class="scene-label label-two">∞ / CREATE</div>
+    </div>
     
     <!-- Floating Icons in Background -->
     <div class="floating-icon icon-1">
@@ -63,12 +75,13 @@
         Tipaccio Studio Online
       </div>
       <div class="hero-title-wrapper blur-reveal" style="--delay: 0.2s">
+        <p class="hero-kicker">DIGITAL SYSTEMS · MADE IN ITALY</p>
         <h1>Sviluppiamo <br><span class="gradient-text silver-gradient">l'Impossibile.</span></h1>
       </div>
       <p class="hero-desc blur-reveal" style="--delay: 0.3s">Dai bot Discord più complessi alle web app più veloci. <br>Design audace, codice pulito, performance estreme ispirate ai migliori.</p>
       <div class="hero-btns blur-reveal" style="--delay: 0.4s">
         <a href="#contact" class="btn-primary magnetic"><span class="btn-text">Lavora con noi</span></a>
-        <a href="https://github.com/tipaccio-studio" target="_blank" class="btn-ghost magnetic">
+        <a href="https://github.com/tipaccio-studio" target="_blank" rel="noopener noreferrer" class="btn-ghost magnetic">
           <span class="btn-text">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path
@@ -112,8 +125,8 @@
               <img src="foto/logo.png" alt="Tipaccio Avatar" class="avatar-img-round">
             </div>
             <div class="profile-info">
-              <h3>Tipaccio Studio</h3>
-              <span class="mono-sub">Creative Engineers</span>
+              <h3>Francesco Tipaccio</h3>
+              <span class="mono-sub">CEO · Tipaccio Studio</span>
             </div>
           </div>
           <p class="bento-desc">Non è solo codice, è visione. Da <strong>ex developer su Roblox</strong>, abbiamo evoluto le nostre competenze nella creazione di infrastrutture per FiveM e complessi ecosistemi bot su Discord, integrati con le più recenti AI.</p>
@@ -244,7 +257,7 @@
         <p class="bento-desc max-w-md mx-auto">Hai un'idea folle o hai bisogno di scalare un ecosistema esistente? Scrivimi. Rispondo sempre con soluzioni concrete.</p>
         
         <div class="contact-links">
-          <a href="https://discord.gg/A3NSJwWdxm" target="_blank" class="btn-primary magnetic">
+          <a href="https://discord.gg/A3NSJwWdxm" target="_blank" rel="noopener noreferrer" class="btn-primary magnetic">
             <span class="btn-text">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" />
@@ -277,8 +290,6 @@
   </footer>
 
   <script src="script.js"></script>
-  <!-- DMCA script -->
-  <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
 </body>
 
 </html>

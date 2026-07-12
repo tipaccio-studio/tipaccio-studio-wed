@@ -130,7 +130,7 @@ const observer = new IntersectionObserver((entries) => {
         
         const target = +el.getAttribute('data-target');
         let current = 0;
-        const step = target / 40;
+        const step = target / 24;
         const timer = setInterval(() => {
           current += step;
           if (current >= target) { 
@@ -139,7 +139,7 @@ const observer = new IntersectionObserver((entries) => {
           } else {
             el.textContent = Math.floor(current);
           }
-        }, 30);
+        }, 24);
       });
       
       // Stop observing once visible
@@ -152,12 +152,30 @@ document.querySelectorAll('.blur-reveal').forEach(el => {
   observer.observe(el);
 });
 
-// ===== NAVBAR SCROLL BEHAVIOR =====
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('navbar');
+// ===== NAVBAR, ACTIVE SECTION & READING PROGRESS =====
+const nav = document.getElementById('navbar');
+const progress = document.querySelector('.scroll-progress span');
+const navAnchors = [...document.querySelectorAll('.nav-links a')];
+const navSections = navAnchors
+  .map(link => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+function updateNavigation() {
   if (window.scrollY > 50) {
     nav.classList.add('scrolled');
   } else {
     nav.classList.remove('scrolled');
   }
-});
+
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = `${scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0}%`;
+
+  let current = navSections[0]?.id;
+  navSections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - window.innerHeight * 0.38) current = section.id;
+  });
+  navAnchors.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${current}`));
+}
+
+window.addEventListener('scroll', updateNavigation, { passive: true });
+updateNavigation();
